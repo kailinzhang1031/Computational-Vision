@@ -1,1 +1,1 @@
-# Computational-Vision
+# Comput-Vision
