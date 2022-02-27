@@ -75,6 +75,10 @@ tensor([[ 0.,  1.,  0.,  0.,  0., -1.,  0.],
         [ 0.,  1.,  0.,  0.,  0., -1.,  0.]])
 ```
 
+We can now apply the kernel to the transposed image. 
+
+As expected, it vanishes. The kernel K only detects vertical edges.
+
 ```python
 corr2d(X.t(), K)
 ```
@@ -92,6 +96,16 @@ tensor([[0., 0., 0., 0., 0.],
 ```
 
 ## 6.2.4. Learning a Kernel
+
+Now let us see whether we can learn the kernel that generated Y from X by looking at the input–output pairs only. 
+
+We first construct a convolutional layer and initialize its kernel as a random tensor. 
+
+Next, in each iteration, we will use the squared error to compare Y with the output of the convolutional layer. 
+
+We can then calculate the gradient to update the kernel. 
+
+For the sake of simplicity, in the following we use the built-in class for two-dimensional convolutional layers and ignore the bias.
 
 ```python
 # Construct a two-dimensional convolutional layer with 1 output channel and a
@@ -124,6 +138,10 @@ epoch 8, loss 0.219
 epoch 10, loss 0.081
 ```
 
+Note that the error has dropped to a small value after 10 iterations. 
+
+Now we will take a look at the kernel tensor we learned.
+
 ```python
 conv2d.weight.data.reshape((1, 2))
 ```
@@ -131,3 +149,5 @@ conv2d.weight.data.reshape((1, 2))
 ```python
 tensor([[ 0.9573, -1.0137]])
 ```
+
+Indeed, the learned kernel tensor is remarkably close to the kernel tensor K we defined earlier.
