@@ -108,7 +108,7 @@ dropout: turning more terms to 0, droping more (key,value) pair.
 - queries: batch_size * num_queries * length_queries = 2 * 1 * 20
 - keys: batch_size * num_keys * length_keys = 2 * 10 * 2
 - value: batch_size * num_value * length_value = 2 * 10 * 4
-- values: 1st visible (key,value), 2nd (key,value)
+- values: 1st visible (key,value), 2nd visible (key,value)
 
 same values, different queries, keys, different scores.
 
