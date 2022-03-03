@@ -351,7 +351,9 @@ A.shape, x.shape, torch.mv(A, x)
 
 ## 2.3.9. Matrix-Matrix Multiplication
 
-Mathematics Formula: $ \begin{split}\mathbf{C} = \mathbf{AB} = \begin{bmatrix}
+Mathematics Formula: 
+
+$ \begin{split}\mathbf{C} = \mathbf{AB} = \begin{bmatrix}
 \mathbf{a}^\top_{1} \\
 \mathbf{a}^\top_{2} \\
 \vdots \\
